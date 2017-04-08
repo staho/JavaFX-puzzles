@@ -41,10 +41,7 @@ public class PuzzleController {
 
     @FXML
     private void initialize(){
-        CutImage cutImage = new CutImage(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
-        this.tilesList = cutImage.getTileList();
-        panel.getChildren().addAll(tilesList);
-
+        this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
 
         for(Tile tile : tilesList){
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -60,6 +57,11 @@ public class PuzzleController {
                 }
             });
         }
+
+        panel.getChildren().addAll(tilesList);
+
+
+
     }
     private void swap(){
         int indexOfFirst = tilesList.indexOf(first);

@@ -14,13 +14,14 @@ import java.util.List;
  * Created by staho on 08.04.2017.
  */
 public class CutImage {
-    private BufferedImage image;
 
-    public List<Tile> getTileList(){
+    static public List<Tile> getTileList(File file){
+
         List<Tile> temp = new ArrayList<>(9);
         int tileCounter = 0;
         for(int i = 0; i < 3; i++){
             for(int j = 0 ; j < 3; j++){
+                BufferedImage image = getImageFromFile(file);
                 BufferedImage part = image.getSubimage(j*100, i*100, 100, 100);
                 Tile tempTile = new Tile(100, 100, part, tileCounter++);
                 tempTile.setFill(new ImagePattern(SwingFXUtils.toFXImage(tempTile.getPart(),null)));
@@ -33,22 +34,25 @@ public class CutImage {
         return temp;
     }
 
-    //14 + i * 110 + j *
-
-    public CutImage(File file){
+    static public BufferedImage getImageFromFile(File file){
         try {
-            this.image = ImageIO.read(file);
-            if(this.image.getHeight() != 300 && this.image.getWidth() != 300){
+            BufferedImage image = ImageIO.read(file);
+
+            if(image.getHeight() != 300 && image.getWidth() != 300){
                 Image tmp = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
                 BufferedImage img = new BufferedImage(300, 300, BufferedImage.TYPE_INT_ARGB);
 
                 Graphics2D g2d = img.createGraphics();
                 g2d.drawImage(tmp, 0, 0, null);
                 g2d.dispose();
-                this.image = img;
+                return img;
             }
+            return image;
         } catch(Exception e){
             e.printStackTrace();
         }
+        return null;
     }
+
+    //14 + i * 110 + j *
 }

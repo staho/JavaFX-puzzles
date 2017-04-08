@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.paint.ImagePattern;
 
@@ -34,7 +36,7 @@ public class CutImage {
         return temp;
     }
 
-    static public BufferedImage getImageFromFile(File file){
+    static private BufferedImage getImageFromFile(File file){
         try {
             BufferedImage image = ImageIO.read(file);
 

@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6d5f118-2cdb-4ee0-850c-c77151521ef6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController$1.class" afterPath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController.class" afterPath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/assets/photo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/assets/photo1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/MainApp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/controller/PuzzleController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/model/CutImage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/model/Tile.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/view/PuzzleLayout.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JavaFX-puzzles/view/RootLayout.fxml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/MainApp.java" afterPath="$PROJECT_DIR$/src/controller/MainApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/PuzzleController.java" afterPath="$PROJECT_DIR$/src/controller/PuzzleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/CutImage.java" afterPath="$PROJECT_DIR$/src/model/CutImage.java" />
     </list>
@@ -22,15 +30,15 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="365">
+              <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2087#2088#0" expanded="true" />
-                <element signature="e#2115#2116#0" expanded="true" />
+                <element signature="e#2168#2169#0" expanded="true" />
+                <element signature="e#2196#2197#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +47,8 @@
       <file leaf-file-name="CutImage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/CutImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="702">
+              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,7 +59,7 @@
       <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="275">
               <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,15 +89,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PuzzleController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PuzzleController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/PuzzleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#971#972#0" expanded="true" />
+                <element signature="e#1013#1014#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,10 +139,10 @@
         <option value="$PROJECT_DIR$/src/MainApp.java" />
         <option value="$PROJECT_DIR$/src/view/RootLayout.fxml" />
         <option value="$PROJECT_DIR$/src/view/PuzzleLayout.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/MainApp.java" />
         <option value="$PROJECT_DIR$/src/model/Tile.java" />
-        <option value="$PROJECT_DIR$/src/model/CutImage.java" />
+        <option value="$PROJECT_DIR$/src/controller/MainApp.java" />
         <option value="$PROJECT_DIR$/src/controller/PuzzleController.java" />
+        <option value="$PROJECT_DIR$/src/model/CutImage.java" />
       </list>
     </option>
   </component>
@@ -245,28 +253,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaFX-puzzles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaFX-puzzles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaFX-puzzles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -704,21 +690,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1491662107213</updated>
-      <workItem from="1491662112145" duration="18406000" />
+      <workItem from="1491662112145" duration="21269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18406000" />
+    <option name="totallyTimeSpent" value="21269000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1092" extended-state="1" />
+    <frame x="-8" y="-8" width="2576" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299389" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -755,20 +741,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/PuzzleController.java</url>
-          <line>60</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/PuzzleController.java</url>
-          <line>29</line>
-          <properties />
-          <option name="timeStamp" value="8" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/model/CutImage.java</url>
+          <line>19</line>
+          <properties class="model.CutImage" method="getTileList" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -796,15 +776,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainApp.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2115#2116#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="378">
+          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -821,7 +797,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
+        <state relative-caret-position="275">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -837,32 +813,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/event/EventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/PuzzleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="145">
+          <caret line="50" column="25" lean-forward="false" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/CutImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state relative-caret-position="702">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/PuzzleController.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="365">
+          <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#2168#2169#0" expanded="true" />
+            <element signature="e#2196#2197#0" expanded="true" />
           </folding>
         </state>
       </provider>

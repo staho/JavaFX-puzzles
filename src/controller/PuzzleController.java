@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import model.CutImage;
 import model.Tile;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class PuzzleController {
     private void initialize(){
         this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
 
+        panel.getChildren().addAll(tilesList);
         for(Tile tile : tilesList){
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -52,13 +55,10 @@ public class PuzzleController {
                         second = (Tile) event.getSource();
                         swap();
                     }
-
-
                 }
             });
         }
 
-        panel.getChildren().addAll(tilesList);
 
 
 

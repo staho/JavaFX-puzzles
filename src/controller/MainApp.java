@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -14,6 +15,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by staho on 08.04.2017.
@@ -21,7 +23,7 @@ import java.util.List;
 public class MainApp extends Application{
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private List<Tile> tilesList;
+    private ObservableList<Tile> tilesList;
 
     @Override
     public void start(Stage primaryStage){

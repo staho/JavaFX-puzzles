@@ -10,6 +10,8 @@ import javafx.scene.paint.ImagePattern;
 import model.CutImage;
 import model.Tile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,8 +45,27 @@ public class PuzzleController {
 
     @FXML
     private void initialize(){
-        this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
+        //this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
 
+        this.tilesList = new ArrayList<>(9);
+        try {
+            BufferedImage image = ImageIO.read(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
+            int tileCounter = 0;
+            for(int i = 0; i < 3; i++){
+                for(int j = 0 ; j < 3; j++){
+                    BufferedImage part = image.getSubimage(j*100, i*100, 100, 100);
+                    Tile tempTile = new Tile(100, 100, part, tileCounter++);
+                    tempTile.setFill(new ImagePattern(SwingFXUtils.toFXImage(tempTile.getPart(),null)));
+                    //tempTile.setFill(Color.AZURE);
+                    tempTile.setLayoutX(14 + j*110);
+                    tempTile.setLayoutY(14 + i*110);
+                    tilesList.add(tempTile);
+                }
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         panel.getChildren().addAll(tilesList);
         for(Tile tile : tilesList){
             tile.setOnMouseClicked(new EventHandler<MouseEvent>() {

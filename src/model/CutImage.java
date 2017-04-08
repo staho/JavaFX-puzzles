@@ -18,12 +18,11 @@ import java.util.List;
 public class CutImage {
 
     static public List<Tile> getTileList(File file){
-
+        BufferedImage image = getImageFromFile(file);
         List<Tile> temp = new ArrayList<>(9);
         int tileCounter = 0;
         for(int i = 0; i < 3; i++){
             for(int j = 0 ; j < 3; j++){
-                BufferedImage image = getImageFromFile(file);
                 BufferedImage part = image.getSubimage(j*100, i*100, 100, 100);
                 Tile tempTile = new Tile(100, 100, part, tileCounter++);
                 tempTile.setFill(new ImagePattern(SwingFXUtils.toFXImage(tempTile.getPart(),null)));

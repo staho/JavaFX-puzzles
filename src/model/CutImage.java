@@ -28,8 +28,8 @@ public class CutImage {
                 Tile tempTile = new Tile(100, 100, part, tileCounter++);
                 tempTile.setFill(new ImagePattern(SwingFXUtils.toFXImage(tempTile.getPart(),null)));
 
-                tempTile.setLayoutX(14 + j*110);
-                tempTile.setLayoutY(14 + i*110);
+                tempTile.setLayoutX(20 + j*110);
+                tempTile.setLayoutY(20 + i*110);
                 temp.add(tempTile);
             }
         }

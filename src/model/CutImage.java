@@ -27,7 +27,7 @@ public class CutImage {
                 BufferedImage part = image.getSubimage(j*100, i*100, 100, 100);
                 Tile tempTile = new Tile(100, 100, part, tileCounter++);
                 tempTile.setFill(new ImagePattern(SwingFXUtils.toFXImage(tempTile.getPart(),null)));
-                //tempTile.setFill(Color.AZURE);
+
                 tempTile.setLayoutX(14 + j*110);
                 tempTile.setLayoutY(14 + i*110);
                 temp.add(tempTile);

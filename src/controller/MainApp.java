@@ -23,7 +23,6 @@ import java.util.Observable;
 public class MainApp extends Application{
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private ObservableList<Tile> tilesList;
 
     @Override
     public void start(Stage primaryStage){
@@ -31,8 +30,8 @@ public class MainApp extends Application{
         primaryStage.setTitle("Puzzles");
         primaryStage.getIcons().add(new Image("https://is1-ssl.mzstatic.com/image/thumb/Purple111/v4/bc/61/2e/bc612e80-d78e-6659-e4a5-4c7387a28b1e/source/256x256bb.jpg"));
 
-        URL resource = MainApp.class.getResource("../view/RootLayout.fxml");
-        System.out.println(resource.toString());
+        //URL resource = MainApp.class.getResource("../view/RootLayout.fxml");
+        //System.out.println(resource.toString());
 
         initRootLayout();
         showPuzzleLayout();
@@ -62,9 +61,6 @@ public class MainApp extends Application{
             AnchorPane anchorPane = loader.load();
 
             rootLayout.setCenter(anchorPane);
-
-            PuzzleController puzzleController = loader.getController();
-            puzzleController.setTilesList(this.tilesList);
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -76,7 +72,7 @@ public class MainApp extends Application{
     }
 
 
-    public static void MainApp(String[] args){
+    public static void main(String[] args){
         launch(args);
     }
 }

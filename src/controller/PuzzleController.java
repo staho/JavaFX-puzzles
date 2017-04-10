@@ -50,6 +50,7 @@ public class PuzzleController {
 
     @FXML
     private void handleStartBtn(){
+        time = 0;
         isGameStarted = true;
         movesCount = 0;
         Collections.shuffle(tilesList);
@@ -74,7 +75,7 @@ public class PuzzleController {
 
     @FXML
     private void initialize(){
-        this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo1.png"));
+        this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
 
 
         for(Tile tile : tilesList){
@@ -88,36 +89,40 @@ public class PuzzleController {
                         firstChosen.setFill(Color.AQUA);
                     }
                     else if(second == null) {
-                        movesCount++;
                         second = (Tile) event.getSource();
-                        secondChosen.setLayoutX(first.getLayoutX() - 3);
-                        secondChosen.setLayoutY(first.getLayoutY() - 3);
-                        secondChosen.setFill(Color.AQUA);
-                        PathTransition ptr = getPathTransition(first,second);
-                        PathTransition ptr2 = getPathTransition(second, first);
-                        ParallelTransition pt = new ParallelTransition(ptr, ptr2);
-                        firstChosen.setFill(Color.TRANSPARENT);
-                        secondChosen.setFill(Color.TRANSPARENT);
-                        pt.play();
-                        pt.setOnFinished(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-                                swap();
-                                if(isGameWon()){
-                                    Platform.runLater(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            if(isGameStarted) {
-                                                timeline.stop();
-                                                setWonAlert();
-                                                isGameStarted = false;
+                        //double firstToSecondAbs = Math.abs(tilesList.indexOf(first) - tilesList.indexOf(second));
+                        if ((first.getLayoutX() == second.getLayoutX() && Math.abs(first.getLayoutY() - second.getLayoutY()) < 150) || (Math.abs(first.getLayoutX() - second.getLayoutX()) < 150 && first.getLayoutY() == second.getLayoutY())){
+                            movesCount++;
+                            secondChosen.setLayoutX(first.getLayoutX() - 3);
+                            secondChosen.setLayoutY(first.getLayoutY() - 3);
+                            secondChosen.setFill(Color.AQUA);
+                            PathTransition ptr = getPathTransition(first, second);
+                            PathTransition ptr2 = getPathTransition(second, first);
+                            ParallelTransition pt = new ParallelTransition(ptr, ptr2);
+                            firstChosen.setFill(Color.TRANSPARENT);
+                            secondChosen.setFill(Color.TRANSPARENT);
+                            pt.play();
+                            pt.setOnFinished(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    swap();
+                                    if (isGameWon()) {
+                                        Platform.runLater(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (isGameStarted) {
+                                                    timeline.stop();
+                                                    setWonAlert();
+                                                    isGameStarted = false;
+                                                }
                                             }
-
-                                        }
-                                    });
+                                         });
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        } else {
+                            second = null;
+                        }
                     }
                 }
             });

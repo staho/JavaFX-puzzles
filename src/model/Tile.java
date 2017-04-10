@@ -12,6 +12,16 @@ public class Tile extends javafx.scene.shape.Rectangle {
     private BufferedImage part;
     private int num;
 
+    public int getCurrentPos() {
+        return currentPos;
+    }
+
+    public void setCurrentPos(int currentPos) {
+        this.currentPos = currentPos;
+    }
+
+    private int currentPos;
+
     public int getNum() {
         return num;
     }
@@ -34,11 +44,13 @@ public class Tile extends javafx.scene.shape.Rectangle {
         super(width, height);
         this.part = part;
         this.num = num;
+        this.currentPos = num;
     }
 
     public Tile(BufferedImage part, int num){
         this.part = part;
         this.num = num;
+        this.currentPos = num;
     }
 
 }

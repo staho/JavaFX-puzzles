@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +11,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.CutImage;
 import model.Tile;
+import model.Time;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,12 @@ public class MainApp extends Application{
     private Stage primaryStage;
     private BorderPane rootLayout;
 
+    public ObservableList<Time> getTimeObservableList() {
+        return timeObservableList;
+    }
+
+    private ObservableList<Time> timeObservableList = FXCollections.observableArrayList();
+
     @Override
     public void start(Stage primaryStage){
         this.primaryStage = primaryStage;
@@ -35,6 +44,7 @@ public class MainApp extends Application{
 
         initRootLayout();
         showPuzzleLayout();
+        showTimeTableLayout();
 
     }
 
@@ -61,7 +71,27 @@ public class MainApp extends Application{
             AnchorPane anchorPane = loader.load();
 
             rootLayout.setCenter(anchorPane);
+
+            PuzzleController controller = loader.getController();
+            controller.setTimeList(timeObservableList);
         } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showTimeTableLayout(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("../view/ScoreTableLayout.fxml"));
+            timeObservableList.add(new Time());
+
+            AnchorPane anchorPane = loader.load();
+
+            rootLayout.setRight(anchorPane);
+            ScoreTableController controller = loader.getController();
+            controller.setMain(this);
+
+        } catch (IOException e){
             e.printStackTrace();
         }
     }

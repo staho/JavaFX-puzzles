@@ -2,6 +2,7 @@ package controller;
 
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,6 +26,7 @@ import java.io.File;
 import java.sql.Time;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -33,15 +35,21 @@ import java.util.concurrent.TimeUnit;
 public class PuzzleController {
 
     private List<Tile> tilesList;
+    private ObservableList<model.Time> timeList;
     private Tile first = null;
     private Tile second = null;
     private Timeline timeline;
     private long time = 0;
     private int movesCount = 0;
     private boolean isGameStarted = false;
+    private model.Time timeOfGame;
 
     private Rectangle firstChosen;
     private Rectangle secondChosen;
+
+    public void setTimeList(ObservableList<model.Time> timeList){
+        this.timeList = timeList;
+    }
 
     @FXML
     private AnchorPane panel;
@@ -53,6 +61,13 @@ public class PuzzleController {
         time = 0;
         isGameStarted = true;
         movesCount = 0;
+        first = null;
+        second = null;
+        firstChosen.setFill(Color.TRANSPARENT);
+        secondChosen.setFill(Color.TRANSPARENT);
+        timeOfGame = new model.Time();
+
+
         Collections.shuffle(tilesList);
         for(Tile tile : tilesList){
             int num = tile.getNum();
@@ -112,6 +127,9 @@ public class PuzzleController {
                                             public void run() {
                                                 if (isGameStarted) {
                                                     timeline.stop();
+
+                                                    timeList.add(timeOfGame);
+
                                                     setWonAlert();
                                                     isGameStarted = false;
                                                 }
@@ -173,13 +191,17 @@ public class PuzzleController {
         alert.showAndWait();
     }
     private void updateTime(){
-        long seconds = TimeUnit.MICROSECONDS.toSeconds(time);
-        long minutes = TimeUnit.MICROSECONDS.toMinutes(time);
-        long hours = TimeUnit.MICROSECONDS.toHours(time);
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(time);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
+        long hours = TimeUnit.MILLISECONDS.toHours(time);
         long millis = time - TimeUnit.SECONDS.toMillis(seconds);
         String timeString = String.format("%02d:%02d:%02d:%d", hours, minutes, seconds, millis);
         label.setText(timeString);
         time += 100;
+        timeOfGame.setMillis(millis);
+        timeOfGame.setSeconds(seconds);
+        timeOfGame.setMinutes(minutes);
+        timeOfGame.setHours(hours);
     }
     private PathTransition getPathTransition(Tile first, Tile second){
         PathTransition pathTransition = new PathTransition();

@@ -25,6 +25,7 @@ import model.Tile;
 import java.io.File;
 import java.sql.Time;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Observable;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +44,27 @@ public class PuzzleController {
     private int movesCount = 0;
     private boolean isGameStarted = false;
     private model.Time timeOfGame;
+    private MainApp main;
+    private File file;
+
+    public void setMain(MainApp main) {
+        this.main = main;
+    }
+
+    private void saveTimes(File file){
+        main.saveTimesToFile(file);
+    }
+    private void readTimes(File file){
+        main.loadTimesFromFile(file);
+    }
+    public void setFile(File file){
+        this.file = file;
+
+        if(file != null) {
+            readTimes(file);
+        }
+
+    }
 
     private Rectangle firstChosen;
     private Rectangle secondChosen;
@@ -86,11 +108,15 @@ public class PuzzleController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+
+
+
     }
 
     @FXML
     private void initialize(){
-        this.tilesList = CutImage.getTileList(new File("out\\production\\JavaFX-puzzles\\assets\\photo.png"));
+
+        this.tilesList = CutImage.getTileList(new File("out/production/JavaFX-puzzles/assets/photo1.png"));
 
 
         for(Tile tile : tilesList){
@@ -129,6 +155,8 @@ public class PuzzleController {
                                                     timeline.stop();
 
                                                     timeList.add(timeOfGame);
+
+                                                    saveTimes(file);
 
                                                     setWonAlert();
                                                     isGameStarted = false;

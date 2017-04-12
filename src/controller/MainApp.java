@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -12,7 +13,12 @@ import javafx.stage.Stage;
 import model.CutImage;
 import model.Tile;
 import model.Time;
+import model.TimeTableWrapper;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +32,7 @@ import java.util.Observable;
 public class MainApp extends Application{
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private File file;
 
     public ObservableList<Time> getTimeObservableList() {
         return timeObservableList;
@@ -38,7 +45,7 @@ public class MainApp extends Application{
         this.primaryStage = primaryStage;
         primaryStage.setTitle("Puzzles");
         primaryStage.getIcons().add(new Image("https://is1-ssl.mzstatic.com/image/thumb/Purple111/v4/bc/61/2e/bc612e80-d78e-6659-e4a5-4c7387a28b1e/source/256x256bb.jpg"));
-
+        this.file = new File("out/production/JavaFX-puzzles/times.xml");
         //URL resource = MainApp.class.getResource("../view/RootLayout.fxml");
         //System.out.println(resource.toString());
 
@@ -74,6 +81,8 @@ public class MainApp extends Application{
 
             PuzzleController controller = loader.getController();
             controller.setTimeList(timeObservableList);
+            controller.setMain(this);
+            controller.setFile(file);
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -83,7 +92,7 @@ public class MainApp extends Application{
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("../view/ScoreTableLayout.fxml"));
-            timeObservableList.add(new Time());
+            //timeObservableList.add(new Time());
 
             AnchorPane anchorPane = loader.load();
 
@@ -93,6 +102,58 @@ public class MainApp extends Application{
 
         } catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public void saveTimesToFile(File file){
+        try{
+            JAXBContext context = JAXBContext.newInstance(TimeTableWrapper.class);
+
+            Marshaller m = context.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            TimeTableWrapper wrapper = new TimeTableWrapper();
+            wrapper.setTimeList(timeObservableList);
+
+            //File file = new File("../scores.txt");
+            m.marshal(wrapper,file);
+
+
+        }catch(JAXBException e){
+            e.printStackTrace();
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not save data");
+            alert.setContentText("Could not save data to file:\n" + file.getPath());
+
+            alert.showAndWait();
+
+        }
+    }
+    public void loadTimesFromFile(File file){
+        try {
+            JAXBContext context = JAXBContext
+                    .newInstance(TimeTableWrapper.class);
+            Unmarshaller um = context.createUnmarshaller();
+
+            // Reading XML from the file and unmarshalling.
+            TimeTableWrapper wrapper = (TimeTableWrapper) um.unmarshal(file);
+
+            timeObservableList.clear();
+            timeObservableList.addAll(wrapper.getTimeList());
+
+
+        }catch(JAXBException e){
+            e.printStackTrace();
+        }
+        catch (Exception e) { // catches ANY exception
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not load data");
+            alert.setContentText("Could not load data from file:\n" + file.getPath());
+
+            alert.showAndWait();
         }
     }
 

@@ -1,8 +1,11 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by staho on 10.04.2017.
